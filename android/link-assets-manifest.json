@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "Src/assets/Fonts/MPLUS-Bold.ttf",
+      "sha1": "b23eb8c8d269fabb6d8ea9f272961645a376d229"
+    },
+    {
+      "path": "Src/assets/Fonts/MPLUS-ExtraLight.ttf",
+      "sha1": "e66a9ddc9d8b1bbf1540a5857de7930f2b3c44db"
+    },
+    {
+      "path": "Src/assets/Fonts/MPLUS-Light.ttf",
+      "sha1": "0b751aac530bf21465bcdf1e03aa740cbcb5dd08"
+    },
+    {
+      "path": "Src/assets/Fonts/MPLUS-Medium.ttf",
+      "sha1": "273b0953112f00ab52d49645beac9597cd6cd2b8"
+    },
+    {
+      "path": "Src/assets/Fonts/MPLUS-Regular.ttf",
+      "sha1": "4bb0dd7b9e35b69924984526a1110b87b41d2f7f"
+    },
+    {
+      "path": "Src/assets/Fonts/MPLUS-SemiBold.ttf",
+      "sha1": "ad2f6ec170ff4b7eb4c305dc8dd3a50ef36d4b08"
+    },
+    {
+      "path": "Src/assets/Fonts/MPLUS-Thin.ttf",
+      "sha1": "a0d2d6e87c53041b0ff722457b952b447d39a123"
+    }
+  ]
+}

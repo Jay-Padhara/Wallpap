@@ -9,11 +9,19 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* wallpapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* wallpapTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-wallpap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-wallpap.a */; };
+		0F7F51F5081E44A28D0D035C /* MPLUS-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88A0E23D66BF4A79B2962839 /* MPLUS-ExtraLight.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2AA59FBE0C3B433FA083B1AA /* MPLUS-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18277A4918CF48F696665E99 /* MPLUS-Thin.ttf */; };
+		6EE390B3DA9B475C805A38DD /* MPLUS-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BBFA98152A0422D838B42DB /* MPLUS-Light.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-wallpap-wallpapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-wallpap-wallpapTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8897C0E42BC6B10E001B7141 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 8897C0E32BC6B10E001B7141 /* fonts */; };
+		9FD41A3F0DF54F3EB9EB2137 /* MPLUS-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5775AB10BA54704A2C4AA5C /* MPLUS-SemiBold.ttf */; };
+		C26B8C2ACDF149EE857A78B9 /* MPLUS-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5790B12B29F456C9063FDEF /* MPLUS-Medium.ttf */; };
+		E2F8FF9514A74810806E1D2F /* MPLUS-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 980575BF65D240B7AFE758D4 /* MPLUS-Regular.ttf */; };
+		ED575F7367B44CBB9A55B7C9 /* MPLUS-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D520436CE4B54D00B723FFBE /* MPLUS-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,19 +38,27 @@
 		00E356EE1AD99517003FC87E /* wallpapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wallpapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* wallpapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wallpapTests.m; sourceTree = "<group>"; };
+		0BBFA98152A0422D838B42DB /* MPLUS-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MPLUS-Light.ttf"; path = "../Src/assets/Fonts/MPLUS-Light.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* wallpap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wallpap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = wallpap/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = wallpap/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = wallpap/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = wallpap/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = wallpap/main.m; sourceTree = "<group>"; };
+		18277A4918CF48F696665E99 /* MPLUS-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MPLUS-Thin.ttf"; path = "../Src/assets/Fonts/MPLUS-Thin.ttf"; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-wallpap-wallpapTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wallpap-wallpapTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-wallpap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallpap.debug.xcconfig"; path = "Target Support Files/Pods-wallpap/Pods-wallpap.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-wallpap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallpap.release.xcconfig"; path = "Target Support Files/Pods-wallpap/Pods-wallpap.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-wallpap-wallpapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallpap-wallpapTests.debug.xcconfig"; path = "Target Support Files/Pods-wallpap-wallpapTests/Pods-wallpap-wallpapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-wallpap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wallpap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = wallpap/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8897C0E32BC6B10E001B7141 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../android/app/src/main/assets/fonts; sourceTree = "<group>"; };
+		88A0E23D66BF4A79B2962839 /* MPLUS-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MPLUS-ExtraLight.ttf"; path = "../Src/assets/Fonts/MPLUS-ExtraLight.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-wallpap-wallpapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wallpap-wallpapTests.release.xcconfig"; path = "Target Support Files/Pods-wallpap-wallpapTests/Pods-wallpap-wallpapTests.release.xcconfig"; sourceTree = "<group>"; };
+		980575BF65D240B7AFE758D4 /* MPLUS-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MPLUS-Regular.ttf"; path = "../Src/assets/Fonts/MPLUS-Regular.ttf"; sourceTree = "<group>"; };
+		A5790B12B29F456C9063FDEF /* MPLUS-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MPLUS-Medium.ttf"; path = "../Src/assets/Fonts/MPLUS-Medium.ttf"; sourceTree = "<group>"; };
+		D520436CE4B54D00B723FFBE /* MPLUS-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MPLUS-Bold.ttf"; path = "../Src/assets/Fonts/MPLUS-Bold.ttf"; sourceTree = "<group>"; };
+		E5775AB10BA54704A2C4AA5C /* MPLUS-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MPLUS-SemiBold.ttf"; path = "../Src/assets/Fonts/MPLUS-SemiBold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -86,6 +102,7 @@
 		13B07FAE1A68108700A75B9A /* wallpap */ = {
 			isa = PBXGroup;
 			children = (
+				8897C0E32BC6B10E001B7141 /* fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -122,6 +139,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				E5528BA0603446B2ADE870EB /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -146,6 +164,20 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-wallpap-wallpapTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E5528BA0603446B2ADE870EB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D520436CE4B54D00B723FFBE /* MPLUS-Bold.ttf */,
+				88A0E23D66BF4A79B2962839 /* MPLUS-ExtraLight.ttf */,
+				0BBFA98152A0422D838B42DB /* MPLUS-Light.ttf */,
+				A5790B12B29F456C9063FDEF /* MPLUS-Medium.ttf */,
+				980575BF65D240B7AFE758D4 /* MPLUS-Regular.ttf */,
+				E5775AB10BA54704A2C4AA5C /* MPLUS-SemiBold.ttf */,
+				18277A4918CF48F696665E99 /* MPLUS-Thin.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +274,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				8897C0E42BC6B10E001B7141 /* fonts in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				ED575F7367B44CBB9A55B7C9 /* MPLUS-Bold.ttf in Resources */,
+				0F7F51F5081E44A28D0D035C /* MPLUS-ExtraLight.ttf in Resources */,
+				6EE390B3DA9B475C805A38DD /* MPLUS-Light.ttf in Resources */,
+				C26B8C2ACDF149EE857A78B9 /* MPLUS-Medium.ttf in Resources */,
+				E2F8FF9514A74810806E1D2F /* MPLUS-Regular.ttf in Resources */,
+				9FD41A3F0DF54F3EB9EB2137 /* MPLUS-SemiBold.ttf in Resources */,
+				2AA59FBE0C3B433FA083B1AA /* MPLUS-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UMF7249LB9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = wallpap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -493,6 +534,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UMF7249LB9;
 				INFOPLIST_FILE = wallpap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
