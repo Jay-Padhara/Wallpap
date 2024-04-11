@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   StatusBar,
   Image,
+  PermissionsAndroid,
+  ToastAndroid,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import ManageWallpaper, {TYPE} from 'react-native-manage-wallpaper';
@@ -17,6 +19,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import RNFetchBlob from 'react-native-fetch-blob';
 
 export default function Wallpap({route}) {
   const navigation = useNavigation();
@@ -78,6 +81,57 @@ export default function Wallpap({route}) {
     }
   };
 
+  const handleDownload = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        {
+          title: 'Storage Permission',
+          message: 'Wallpaperify needs access to your storage to download wallpapers.',
+        }
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log('Storage permission granted');
+        setLoading(true);
+        downloadImage();
+      } else {
+        console.log('Storage permission denied');
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+
+  const downloadImage = () => {
+    const imageUrl = image;
+    const { config, fs } = RNFetchBlob;
+    const PictureDir = fs.dirs.PictureDir;
+    const date = new Date();
+    const imageFileName =
+      'image_' + Math.floor(date.getTime() + date.getSeconds() / 2) + '.png';
+    const imagePath = PictureDir + '/' + imageFileName;
+
+    config({
+      fileCache: true,
+      addAndroidDownloads: {
+        useDownloadManager: true,
+        notification: true,
+        path: imagePath,
+        description: 'Wallpaper',
+      },
+    })
+      .fetch('GET', imageUrl)
+      .then(res => {
+        ToastAndroid.show('Image saved to gallery', ToastAndroid.SHORT);
+        setLoading(false);
+        console.log(res);
+      })
+      .catch(error => {
+        console.error(error);
+        setLoading(false);
+      });
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar
@@ -116,6 +170,7 @@ export default function Wallpap({route}) {
           setBoth();
         }}
         onClose={() => setBottommodal(false)}
+        onSave={() => handleDownload()}
       />
 
       <Loader visible={isloading} />
@@ -155,13 +210,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: hp('5%'),
     left: wp('5%'),
-    padding: wp('2.5%'),
+    padding: wp('3%'),
     borderRadius: wp('3%'),
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
   },
 
   img: {
-    width: wp('7%'),
+    width: wp('6%'),
     height: wp('6%'),
   },
 });

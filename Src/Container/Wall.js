@@ -51,13 +51,24 @@ export default function Wall() {
 
   const handleSearchApi = async () => {
     try {
-      const result = await axios.get(
-        `${API}search/photos?client_id=${CLIENT_ID}&page=1&query=${search}`,
-      );
-      setData(result?.data?.results);
-      setPage(page + 1);
+      if (search) {
+        setPage(0);
+        const result = await axios.get(
+          `${API}search/photos?client_id=${CLIENT_ID}&page=${page}&query=${search}`,
+        );
+
+        setData(prevData =>
+          page === 1
+            ? result?.data?.results
+            : [...prevData, ...result?.data?.results],
+        );
+
+        setPage(prevPage => prevPage + 1);
+      }
     } catch (error) {
       console.error(error);
+    } finally {
+      setRefreshing(false);
     }
   };
 
@@ -89,8 +100,9 @@ export default function Wall() {
           placeholder="Search your image..."
           style={styles.textin}
           placeholderTextColor="grey"
-          onChangeText={text => setSearch(text)}
+          onChangeText={text => setSearch(text.trimStart())}
           onSubmitEditing={handleSearchApi}
+          onBlur={search ? handleSearchApi : handleInitialApi}
         />
       </View>
 
@@ -138,7 +150,7 @@ const styles = StyleSheet.create({
   head: {
     fontSize: wp('8%'),
     color: 'black',
-    margin: wp('2%'),
+    margin: wp('4%'),
     fontFamily: fonts.bold,
   },
 
@@ -173,5 +185,16 @@ const styles = StyleSheet.create({
     fontSize: wp('4%'),
     backgroundColor: 'lightgrey',
     borderRadius: wp('3%'),
+  },
+
+  nocat: {
+    alignItems: 'center',
+    marginTop: hp(32),
+  },
+
+  nocatdata: {
+    color: 'black',
+    fontFamily: fonts.bold,
+    fontSize: wp('5%'),
   },
 });

@@ -27,7 +27,9 @@ end
 
 target 'wallpap' do
   config = use_native_modules!
-
+  
+  pod 'React-Core', :path => '../node_modules/react-native/'
+  
   use_react_native!(
     :path => config[:reactNativePath],
     # Enables Flipper.

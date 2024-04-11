@@ -15,7 +15,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-export const Bottommodal = ({visible, onHome, onLock, onBoth, onClose}) => {
+export const Bottommodal = ({visible, onHome, onLock, onBoth, onClose, onSave}) => {
   return (
     <>
       <StatusBar
@@ -47,6 +47,10 @@ export const Bottommodal = ({visible, onHome, onLock, onBoth, onClose}) => {
               <TouchableOpacity onPress={onBoth} style={styles.touch}>
                 <Text style={styles.setwall}>--{'>'} Set as both</Text>
               </TouchableOpacity>
+
+              <TouchableOpacity onPress={onSave} style={styles.touch}>
+                <Text style={styles.setwall}>--{'>'} Save to gallery</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </TouchableWithoutFeedback>
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
     left: 0,
-    height: hp('36%'),
+    height: hp('45%'),
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
   },
