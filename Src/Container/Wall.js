@@ -25,44 +25,57 @@ export default function Wall() {
   const navigation = useNavigation();
 
   const [data, setData] = useState([]);
-  const [searchdata, setSearchdata] = useState([]);
   const [isRefreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(0);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const [fetchedImageIds, setFetchedImageIds] = useState(new Set());
 
-  const handleApi = async () => {
+  const handleInitialApi = async () => {
     try {
-      if (!search) {
-        const response = await axios.get(
-          `${API}photos/?client_id=${CLIENT_ID}&page=${page}&per_page=${100}`,
-        );
+      const response = await axios.get(
+        `${API}photos/?client_id=${CLIENT_ID}&page=${page}&per_page=${100}`,
+      );
 
-        const newData = response.data.filter(
-          item => !fetchedImageIds.has(item.id),
-        );
-        setData(prevData => [...prevData, ...newData]);
-        setFetchedImageIds(
-          prevIds => new Set([...prevIds, ...newData.map(item => item.id)]),
-        );
-        setPage(page + 1);
-      } else {
-        const result = await axios.get(
-          `${API}search/photos?client_id=${CLIENT_ID}&page=${page}&query=${search}`,
-        );
-        const newData = result.data.results.filter(
-          item => !fetchedImageIds.has(item.id),
-        );
-        setSearchdata(predata => [...predata, ...newData]);
-        setPage(page + 1);
-      }
+      const newData = response.data.filter(
+        item => !fetchedImageIds.has(item.id),
+      );
+      setData(prevData => [...prevData, ...newData]);
+      setFetchedImageIds(
+        prevIds => new Set([...prevIds, ...newData.map(item => item.id)]),
+      );
+      setPage(prevPage => prevPage + 1);
     } catch (error) {
       console.error(error);
     }
-  }
+  };
+
+  const handleSearchApi = async () => {
+    try {
+      const result = await axios.get(
+        `${API}search/photos?client_id=${CLIENT_ID}&page=1&query=${search}`,
+      );
+      setData(result?.data?.results);
+      setPage(page + 1);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleRefresh = () => {
+    setRefreshing(true);
+    setPage(0);
+    setData([]);
+    setFetchedImageIds(new Set());
+    if (!search) {
+      handleInitialApi();
+    } else {
+      handleSearchApi();
+    }
+    setRefreshing(false);
+  };
 
   useEffect(() => {
-    handleApi();
+    handleInitialApi();
   }, []);
 
   return (
@@ -77,62 +90,40 @@ export default function Wall() {
           style={styles.textin}
           placeholderTextColor="grey"
           onChangeText={text => setSearch(text)}
-          onSubmitEditing={handleApi}
+          onSubmitEditing={handleSearchApi}
         />
       </View>
 
       <View style={styles.image}>
-        {!searchdata.length > 0 ? (
-          <FlatList
-            data={data}
-            keyExtractor={(item, index) => index.toString()}
-            numColumns={2}
-            showsVerticalScrollIndicator={false}
-            refreshControl={
-              <RefreshControl refreshing={isRefreshing} onRefresh={handleApi} />
+        <FlatList
+          data={data}
+          keyExtractor={(item, index) => index.toString()}
+          numColumns={2}
+          showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl
+              refreshing={isRefreshing}
+              onRefresh={handleRefresh}
+            />
+          }
+          ListFooterComponent={<ActivityIndicator size="large" color="green" />}
+          onEndReached={() => {
+            if (!search) {
+              handleInitialApi();
+            } else {
+              handleSearchApi();
             }
-            ListFooterComponent={
-              <ActivityIndicator size="large" color="green" />
-            }
-            onEndReached={handleApi}
-            onEndReachedThreshold={0.5}
-            renderItem={({item}) => {
-              return (
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate('Wallpap', {data: item?.urls?.full})
-                  }>
-                  <Image style={styles.img} source={{uri: item?.urls?.full}} />
-                </TouchableOpacity>
-              );
-            }}
-          />
-        ) : (
-          <FlatList
-            data={searchdata}
-            keyExtractor={(item, index) => index.toString()}
-            numColumns={2}
-            showsVerticalScrollIndicator={false}
-            refreshControl={
-              <RefreshControl refreshing={isRefreshing} onRefresh={handleApi} />
-            }
-            ListFooterComponent={
-              <ActivityIndicator size="large" color="green" />
-            }
-            onEndReached={handleApi}
-            onEndReachedThreshold={0.5}
-            renderItem={({item}) => {
-              return (
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate('Wallpap', {data: item?.urls?.full})
-                  }>
-                  <Image style={styles.img} source={{uri: item?.urls?.full}} />
-                </TouchableOpacity>
-              );
-            }}
-          />
-        )}
+          }}
+          onEndReachedThreshold={0.5}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('Wallpap', {data: item?.urls?.full})
+              }>
+              <Image style={styles.img} source={{uri: item?.urls?.full}} />
+            </TouchableOpacity>
+          )}
+        />
       </View>
     </SafeAreaView>
   );
@@ -166,6 +157,8 @@ const styles = StyleSheet.create({
   img: {
     width: wp('50%'),
     height: hp('50%'),
+    borderWidth: 1,
+    borderColor: 'white',
     resizeMode: 'cover',
   },
 

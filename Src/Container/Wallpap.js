@@ -28,6 +28,7 @@ export default function Wallpap({route}) {
   const callback = res => {
     setLoading(true);
     console.log('Response: ', res);
+    navigation.goBack();
     setLoading(false);
     setBottommodal(false);
   };
@@ -85,7 +86,10 @@ export default function Wallpap({route}) {
         barStyle="light-content"
       />
 
-      <ImageBackground style={styles.imageBackground} source={{uri: image}}>
+      <ImageBackground
+        style={styles.imageBackground}
+        source={{uri: image}}
+        resizeMode="cover">
         <TouchableOpacity
           style={styles.back}
           onPress={() => navigation.goBack()}>
